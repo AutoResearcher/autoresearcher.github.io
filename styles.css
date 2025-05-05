@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Georgia', serif;
     line-height: 1.6;
     color: #222;
     background-color: #f9f9f9;
@@ -23,7 +23,7 @@ body {
 /* 标题和导航 */
 header {
     padding: 30px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: none;
 }
 
 header .container {
@@ -33,9 +33,10 @@ header .container {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: normal;
     margin-bottom: 0;
+    font-family: 'Georgia', serif;
 }
 
 nav ul {
@@ -90,6 +91,7 @@ nav ul li a.active::after {
     font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto;
+    font-family: 'Georgia', serif;
 }
 
 .intro h2 {
@@ -101,20 +103,45 @@ nav ul li a.active::after {
 /* 时间线 */
 .timeline {
     padding: 20px 0 60px;
+    position: relative;
 }
 
 .timeline-item {
     position: relative;
     padding: 30px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-    border-left: 4px solid #000;
+    margin-bottom: 40px;
+    background-color: white;
+    margin-left: 50px;
+    border: none;
+    box-shadow: none;
+}
+
+.timeline-item:first-child,
+.timeline-item:nth-child(5) {
+    border: 1px solid #000;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(3) {
+    border: 1px solid #e6e6e6;
+}
+
+.dot {
+    position: absolute;
+    left: -25px;
+    top: 30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #222;
+    border: 2px solid #f9f9f9;
 }
 
 .timeline-item h2 {
     font-size: 1.3rem;
     margin-bottom: 5px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .timeline-item .date {
@@ -123,18 +150,22 @@ nav ul li a.active::after {
     position: absolute;
     right: 30px;
     top: 30px;
+    font-family: 'Georgia', serif;
 }
 
 .timeline-item p {
     margin-top: 15px;
+    font-family: 'Georgia', serif;
 }
 
 .badge {
     display: inline-block;
     padding: 3px 10px;
-    border-radius: 15px;
+    border-radius: 3px;
     font-size: 0.8rem;
     margin-bottom: 10px;
+    font-family: monospace;
+    text-transform: uppercase;
 }
 
 .new {
@@ -149,6 +180,7 @@ nav ul li a.active::after {
 
 .team h2 {
     margin-bottom: 20px;
+    font-family: 'Georgia', serif;
 }
 
 .team-grid {
@@ -159,19 +191,23 @@ nav ul li a.active::after {
 
 .team-member {
     padding: 15px 0;
-    border-top: 1px solid #eee;
+    border-top: none;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 /* 研究领域部分 */
 .research-areas {
     padding: 20px 0 40px;
+    position: relative;
 }
 
 .research-area {
+    position: relative;
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    padding-left: 50px;
+    border-bottom: none;
 }
 
 .research-area:last-child {
@@ -182,11 +218,17 @@ nav ul li a.active::after {
     font-size: 1.4rem;
     margin-bottom: 15px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
+}
+
+.research-area .dot {
+    top: 5px;
 }
 
 .research-area ul {
     margin-top: 15px;
     margin-left: 20px;
+    font-family: 'Georgia', serif;
 }
 
 .research-area li {
@@ -196,54 +238,68 @@ nav ul li a.active::after {
 /* 出版物部分 */
 .publications {
     padding: 20px 0 60px;
+    position: relative;
 }
 
 .publications h2 {
     margin-bottom: 30px;
     font-size: 1.8rem;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .publication {
+    position: relative;
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    padding-left: 50px;
+    border-bottom: none;
 }
 
 .publication:last-child {
     border-bottom: none;
 }
 
+.publication .dot {
+    top: 5px;
+}
+
 .publication h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .publication .authors {
     color: #555;
     margin-bottom: 5px;
+    font-family: 'Georgia', serif;
 }
 
 .publication .venue {
     font-style: italic;
     color: #777;
     margin-bottom: 15px;
+    font-family: 'Georgia', serif;
 }
 
 .publication .abstract {
     font-size: 0.95rem;
+    font-family: 'Georgia', serif;
 }
 
 /* Join Us 页面 */
 .join-us {
     padding: 40px 0;
+    position: relative;
 }
 
 .join-us h2 {
     margin-bottom: 20px;
     font-size: 1.8rem;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .positions {
@@ -251,35 +307,45 @@ nav ul li a.active::after {
 }
 
 .position {
+    position: relative;
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    padding-left: 50px;
+    border-bottom: none;
 }
 
 .position:last-child {
     border-bottom: none;
 }
 
+.position .dot {
+    top: 5px;
+}
+
 .position h3 {
     font-size: 1.4rem;
     margin-bottom: 10px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .position h4 {
     font-size: 1.1rem;
     margin: 20px 0 10px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .position .location {
     font-size: 0.9rem;
     color: #777;
     margin-bottom: 15px;
+    font-family: 'Georgia', serif;
 }
 
 .position ul {
     margin: 15px 0 15px 20px;
+    font-family: 'Georgia', serif;
 }
 
 .position li {
@@ -294,10 +360,12 @@ nav ul li a.active::after {
     font-size: 1.4rem;
     margin-bottom: 20px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .application-process ol {
     margin-left: 20px;
+    font-family: 'Georgia', serif;
 }
 
 .application-process li {
@@ -313,6 +381,7 @@ nav ul li a.active::after {
     text-decoration: none;
     border-radius: 4px;
     font-weight: 500;
+    font-family: 'Georgia', serif;
 }
 
 .application-button:hover {
@@ -322,13 +391,14 @@ nav ul li a.active::after {
 /* 页脚 */
 footer {
     padding: 20px 0;
-    border-top: 1px solid #eee;
+    border-top: none;
     margin-top: 40px;
 }
 
 footer p {
     font-size: 0.9rem;
     color: #777;
+    font-family: 'Georgia', serif;
 }
 
 /* 响应式设计 */
@@ -372,6 +442,13 @@ footer p {
     
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .timeline-item,
+    .research-area,
+    .publication,
+    .position {
+        margin-left: 40px;
     }
 }
 

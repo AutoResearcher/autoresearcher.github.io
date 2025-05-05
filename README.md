@@ -1,6 +1,6 @@
-# AutoResearcher Website
+# Physical Intelligence (π) Website
 
-This is the repository for the AutoResearcher website, a fictional organization focused on developing AI systems for autonomous scientific research.
+This is the repository for the Physical Intelligence website, an organization focused on developing general-purpose AI systems for robotic control and physical interaction.
 
 ## Project Structure
 
@@ -39,8 +39,8 @@ To run this website locally:
 
 The website features a minimalist design inspired by research organizations, with:
 
-- Clean typography
-- Vertical timeline for achievements
+- Clean serif typography
+- Vertical timeline with dot indicators
 - Responsive layout for all devices
 - Subtle animations for improved user experience
 
