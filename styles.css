@@ -1,0 +1,382 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 标题和导航 */
+header {
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #222;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    color: #000;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+/* 响应式导航菜单 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.menu-toggle.active {
+    background-color: #f0f0f0;
+}
+
+/* 介绍部分 */
+.intro {
+    padding: 40px 0;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* 时间线 */
+.timeline {
+    padding: 20px 0 60px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-left: 4px solid #000;
+}
+
+.timeline-item h2 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.timeline-item .date {
+    font-size: 0.9rem;
+    color: #777;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.timeline-item p {
+    margin-top: 15px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.new {
+    background-color: #ffdd57;
+    color: #755c00;
+}
+
+/* 团队部分 */
+.team {
+    padding: 40px 0;
+}
+
+.team h2 {
+    margin-bottom: 20px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.team-member {
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    font-weight: 500;
+}
+
+/* 研究领域部分 */
+.research-areas {
+    padding: 20px 0 40px;
+}
+
+.research-area {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.research-area:last-child {
+    border-bottom: none;
+}
+
+.research-area h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.research-area ul {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.research-area li {
+    margin-bottom: 8px;
+}
+
+/* 出版物部分 */
+.publications {
+    padding: 20px 0 60px;
+}
+
+.publications h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.publication {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.publication:last-child {
+    border-bottom: none;
+}
+
+.publication h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.publication .authors {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.publication .venue {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.publication .abstract {
+    font-size: 0.95rem;
+}
+
+/* Join Us 页面 */
+.join-us {
+    padding: 40px 0;
+}
+
+.join-us h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.positions {
+    margin-top: 30px;
+}
+
+.position {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.position:last-child {
+    border-bottom: none;
+}
+
+.position h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.position h4 {
+    font-size: 1.1rem;
+    margin: 20px 0 10px;
+    font-weight: 500;
+}
+
+.position .location {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.position ul {
+    margin: 15px 0 15px 20px;
+}
+
+.position li {
+    margin-bottom: 8px;
+}
+
+.application-process {
+    margin-top: 50px;
+}
+
+.application-process h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.application-process ol {
+    margin-left: 20px;
+}
+
+.application-process li {
+    margin-bottom: 15px;
+}
+
+.application-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.application-button:hover {
+    background-color: #333;
+}
+
+/* 页脚 */
+footer {
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .menu-toggle {
+        display: block;
+        margin-top: 15px;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    
+    .timeline-item .date {
+        position: static;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+} 
