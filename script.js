@@ -91,4 +91,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 当窗口大小改变时再次检查
     window.addEventListener('resize', handleResponsiveNav);
+    
+    // Leaderboard页面标签功能
+    const tabs = document.querySelectorAll('.tab');
+    if (tabs.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有标签的active类
+                tabs.forEach(t => t.classList.remove('active'));
+                // 为当前点击的标签添加active类
+                this.classList.add('active');
+                
+                // 获取当前标签对应的级别
+                const level = this.dataset.level;
+                
+                // 隐藏所有leaderboard表格
+                document.querySelectorAll('.leaderboard-table').forEach(table => {
+                    table.style.display = 'none';
+                });
+                
+                // 显示当前标签对应的leaderboard表格
+                document.getElementById(level).style.display = 'block';
+            });
+        });
+    }
 }); 

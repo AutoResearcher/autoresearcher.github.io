@@ -32,6 +32,16 @@ header .container {
     align-items: center;
 }
 
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    margin-right: 15px;
+}
+
 h1 {
     font-size: 2.2rem;
     font-weight: normal;
@@ -85,19 +95,107 @@ nav ul li a.active::after {
     background-color: #f0f0f0;
 }
 
+/* 链接按钮区域 */
+main > div[align="center"] {
+    margin: 20px auto 0;
+    padding: 10px 0 0;
+}
+
+main > div[align="center"] a {
+    margin: 0 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+main > div[align="center"] img {
+    transition: transform 0.2s ease;
+}
+
+main > div[align="center"] img:hover {
+    transform: translateY(-3px);
+}
+
+main > div[align="center"] + .intro {
+    margin-top: 20px;
+    border-top: none;
+    position: relative;
+}
+
 /* 介绍部分 */
 .intro {
-    padding: 40px 0;
+    padding: 15px 0 40px;
     font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto;
     font-family: 'Georgia', serif;
 }
 
+.intro p {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
 .intro h2 {
     margin-bottom: 20px;
     font-size: 1.8rem;
     font-weight: 500;
+}
+
+/* 视频容器样式 */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式视频比例16:9 */
+.video-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9比例 */
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 特性列表样式 */
+.feature-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    position: relative;
+    font-family: 'Georgia', serif;
+    line-height: 1.5;
+    text-align: left;
+    flex: 1 1 40%;
+    max-width: 330px;
+}
+
+.feature-list strong {
+    font-weight: 600;
+    color: #000;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 /* 时间线 */
@@ -122,7 +220,7 @@ nav ul li a.active::after {
     box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-.timeline-item:nth-child(3) {
+.timeline-item:nth-child(2) {
     border: 1px solid #e6e6e6;
 }
 
@@ -179,21 +277,81 @@ nav ul li a.active::after {
 }
 
 .team h2 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-family: 'Georgia', serif;
+    font-size: 2rem;
+}
+
+.team-category {
+    font-size: 1.5rem;
+    margin: 20px 0 20px;
+    font-family: 'Georgia', serif;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.team-category::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #000;
+}
+
+/* 修改第二个类别（Advisors）的上边距 */
+.team-category + .team-grid + .team-category {
+    margin-top: 10px;
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 30px;
+    margin-bottom: 20px;
 }
 
 .team-member {
-    padding: 15px 0;
-    border-top: none;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.team-member h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
     font-weight: 500;
     font-family: 'Georgia', serif;
+}
+
+.member-role {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    font-family: 'Georgia', serif;
+}
+
+/* 团队成员链接 */
+.team-member-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.team-member-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.team-member-link:hover .team-member {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* 研究领域部分 */
@@ -204,14 +362,14 @@ nav ul li a.active::after {
 
 .research-area {
     position: relative;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    padding-left: 50px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    padding-left: 25px;
     border-bottom: none;
 }
 
 .research-area:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .research-area h3 {
@@ -222,7 +380,10 @@ nav ul li a.active::after {
 }
 
 .research-area .dot {
-    top: 5px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #4285F4;
 }
 
 .research-area ul {
@@ -232,7 +393,19 @@ nav ul li a.active::after {
 }
 
 .research-area li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    position: relative;
+    list-style-type: none;
+    padding-left: 16px;
+}
+
+.research-area li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #4285F4;
+    font-weight: bold;
 }
 
 /* 出版物部分 */
@@ -442,6 +615,7 @@ footer p {
     
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     
     .timeline-item,
@@ -456,4 +630,135 @@ footer p {
     .team-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* 文本链接样式 */
+.text-link {
+    color: #0066cc;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.text-link:hover {
+    border-bottom-color: #0066cc;
+}
+
+.timeline-item p .text-link {
+    color: #0066cc;
+    font-weight: normal;
+}
+
+/* 研究页面专用样式 */
+.research-page main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.research-page .intro {
+    padding: 20px 0;
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+.research-page .intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.research-page .intro p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.research-areas {
+    padding: 10px 0 20px;
+}
+
+.research-area {
+    position: relative;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    border-bottom: none;
+}
+
+.research-area h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #222;
+}
+
+.research-area p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.research-area ul {
+    margin: 0 0 0 15px;
+    padding-left: 0;
+}
+
+/* 出版物部分 */
+.research-page .publications {
+    padding: 10px 0 30px;
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 0;
+}
+
+.research-page .publications h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    padding-left: 25px;
+}
+
+.research-page .publication {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 12px 15px 12px 25px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.research-page .publication h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #222;
+}
+
+.research-page .publication .authors {
+    color: #555;
+    margin-bottom: 3px;
+    font-size: 0.9rem;
+}
+
+.research-page .publication .venue {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.research-page .publication:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.research-page .publication:last-child {
+    margin-bottom: 0;
+}
+
+.research-page .publication .dot {
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: #4285F4;
+    left: -17px;
 } 

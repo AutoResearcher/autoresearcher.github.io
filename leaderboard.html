@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | AI-Researcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <img src="logo.png" alt="AI-Researcher Logo" class="logo">
+                <h1>AI-Researcher</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                    <!-- <li><a href="join.html">Join Us</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h2>Scientist-Bench Leaderboard</h2>
+                <p>
+                    Our benchmark evaluates the performance of AI-Researcher across different language models
+                    for automated scientific research tasks. This leaderboard tracks how various models perform
+                    on our standardized tests.
+                </p>
+                <div class="announcement">
+                    <img src="images/exp.png" alt="Paper Icon" class="icon">
+                    <p>Our benchmark is released! Check it out and submit the results with your agents.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="leaderboard-section">
+            <div class="container">
+                <div class="tabs">
+                    <button class="tab active" data-level="level1">Level 1</button>
+                    <button class="tab" data-level="level2">Level 2</button>
+                </div>
+
+                <div class="leaderboard-table" id="level1">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>% Completeness</th>
+                                <th>Avg. Correctness (1-5)</th>
+                                <th>Avg. Rating (-3-3)</th>
+                                <th>% Comparable</th>
+                                <th>Org</th>
+                                <th>Date</th>
+                                <th>Trajs</th>
+                                <th>Site</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AI-Researcher (Claude-series)</td>
+                                <td class="score">93.8</td>
+                                <td class="score">2.65</td>
+                                <td class="score">2.0</td>
+                                <td class="score">99.9</td>
+                                <td><img src="images/orgs/hku.jpg" alt="Paper Icon" class="icon"></td>
+                                <td>2025-01-14</td>
+                                <td><span class="check">✓</span></td>
+                                <!-- <td><span class="check">✓</span></td> -->
+                                <td><a href="https://github.com/HKUDS/AI-Researcher" class="external-link"><img src="images/sharing.png" alt="Paper Icon" class="icon"></a></td>
+                            </tr>
+                            <tr>
+                                <td>AI-Researcher (4o-series)</td>
+                                <td class="score">50</td>
+                                <td class="score">1</td>
+                                <td class="score">2.0</td>
+                                <td class="score">99.9</td>
+                                <td><img src="images/orgs/hku.jpg" alt="Paper Icon" class="icon"></td>
+                                <td>2025-01-14</td>
+                                <td><span class="check">✓</span></td>
+                                <!-- <td><span class="check">✓</span></td> -->
+                                <td><a href="https://github.com/HKUDS/AI-Researcher" class="external-link"><img src="images/sharing.png" alt="Paper Icon" class="icon"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="leaderboard-table" id="level2" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>% Completeness</th>
+                                <th>Avg. Correctness (1-5)</th>
+                                <th>Avg. Rating (-3-3)</th>
+                                <th>% Comparable</th>
+                                <th>Org</th>
+                                <th>Date</th>
+                                <th>Trajs</th>
+                                <th>Site</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AI-Researcher (Claude-series)</td>
+                                <td class="score">100</td>
+                                <td class="score">2.5</td>
+                                <td class="score">2.0</td>
+                                <td class="score">99.9</td>
+                                <td><img src="images/orgs/hku.jpg" alt="Paper Icon" class="icon"></td>
+                                <td>2025-01-14</td>
+                                <td><span class="check">✓</span></td>
+                                <!-- <td><span class="check">✓</span></td> -->
+                                <td><a href="https://github.com/HKUDS/AI-Researcher" class="external-link"><img src="images/sharing.png" alt="Paper Icon" class="icon"></a></td>
+                            </tr>
+                            <tr>
+                                <td>AI-Researcher (4o-series)</td>
+                                <td class="score">100</td>
+                                <td class="score">2.25</td>
+                                <td class="score">2.0</td>
+                                <td class="score">99.9</td>
+                                <td><img src="images/orgs/hku.jpg" alt="Paper Icon" class="icon"></td>
+                                <td>2025-01-14</td>
+                                <td><span class="check">✓</span></td>
+                                <!-- <td><span class="check">✓</span></td> -->
+                                <td><a href="https://github.com/HKUDS/AI-Researcher" class="external-link"><img src="images/sharing.png" alt="Paper Icon" class="icon"></a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI-Researcher. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
