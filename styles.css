@@ -761,4 +761,268 @@ footer p {
     height: 10px;
     background-color: #4285F4;
     left: -17px;
+}
+
+/* 博客列表部分 */
+.blogs {
+    padding: 20px 0 40px;
+    position: relative;
+}
+
+.blogs h2 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: 'Georgia', serif;
+    padding-left: 25px;
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-item {
+    position: relative;
+    padding: 15px 20px 15px 25px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.blog-item .dot {
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    background-color: #4285F4;
+    left: -17px;
+}
+
+.blog-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: 'Georgia', serif;
+}
+
+.blog-item h3 a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blog-item h3 a:hover {
+    color: #4285F4;
+}
+
+.blog-item .date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 8px;
+    font-family: 'Georgia', serif;
+}
+
+.blog-item .summary {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: 'Georgia', serif;
+}
+
+.view-all {
+    margin-top: 20px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.view-all a {
+    font-size: 1.05rem;
+    font-family: 'Georgia', serif;
+}
+
+/* 博客详情页样式 */
+.blog-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.blog-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.blog-sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-sidebar li {
+    margin-bottom: 10px;
+}
+
+.blog-sidebar a {
+    color: #444;
+    text-decoration: none;
+    font-family: 'Georgia', serif;
+    display: block;
+    padding: 5px 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.blog-sidebar a:hover,
+.blog-sidebar a.active {
+    color: #4285F4;
+    border-left-color: #4285F4;
+    background-color: rgba(66, 133, 244, 0.05);
+}
+
+.blog-content {
+    flex-grow: 1;
+}
+
+.blog-header {
+    margin-bottom: 30px;
+}
+
+.blog-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+}
+
+.blog-header .meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #666;
+    font-size: 0.95rem;
+    font-family: 'Georgia', serif;
+}
+
+.blog-body {
+    font-family: 'Georgia', serif;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.blog-body h2 {
+    font-size: 1.6rem;
+    margin: 35px 0 15px;
+    font-family: 'Georgia', serif;
+}
+
+.blog-body h3 {
+    font-size: 1.3rem;
+    margin: 30px 0 15px;
+    font-family: 'Georgia', serif;
+}
+
+.blog-body p {
+    margin-bottom: 20px;
+}
+
+.blog-body ul, 
+.blog-body ol {
+    margin: 0 0 20px 20px;
+    padding: 0;
+}
+
+.blog-body li {
+    margin-bottom: 8px;
+}
+
+.blog-body pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.blog-body code {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    background-color: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.blog-body blockquote {
+    margin: 0 0 20px;
+    padding: 15px 20px;
+    border-left: 4px solid #4285F4;
+    background-color: rgba(66, 133, 244, 0.05);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .blog-page {
+        flex-direction: column;
+    }
+    
+    .blog-sidebar {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* 表格样式 */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 500;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
 } 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | AI-Researcher</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+    <!-- 引入Markdown渲染库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <img src="../logo.png" alt="AI-Researcher Logo" class="logo">
+                <h1>AI-Researcher</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../research.html">Research</a></li>
+                    <li><a href="../leaderboard.html">Leaderboard</a></li>
+                    <!-- <li><a href="../join.html">Join Us</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="blog-page">
+        <aside class="blog-sidebar">
+            <h3>目录</h3>
+            <ul id="toc">
+                <!-- 目录将通过JavaScript动态生成 -->
+            </ul>
+            
+            <h3 style="margin-top: 30px;">最近博客</h3>
+            <ul id="recent-blogs">
+                <!-- 最近博客列表将通过JavaScript动态生成 -->
+            </ul>
+        </aside>
+        
+        <div class="blog-content">
+            <div class="blog-header">
+                <h1 id="blog-title">Loading...</h1>
+                <div class="meta">
+                    <span id="blog-date">Loading...</span>
+                    <span id="blog-author">Loading...</span>
+                </div>
+            </div>
+            
+            <div class="blog-body" id="content">
+                <!-- Markdown 内容将在这里渲染 -->
+                <p>Loading content...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI-Researcher. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    
+    <script>
+        // 博客配置
+        const recentBlogs = [
+            { title: "LLMs in Scientific Research: Current Progress", url: "llm-scientific-research.html" },
+            { title: "Automated Hypothesis Generation: Case Studies", url: "automated-hypothesis.html" },
+            { title: "Latest Scientist-Bench Results", url: "benchmark-results.html" },
+            { title: "Automated Literature Review: Beyond Keyword Search", url: "literature-review.html" },
+            { title: "The Future of Scientific Discovery", url: "future-scientific-discovery.html" }
+        ];
+        
+        // 获取当前页面文件名
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        // 生成最近博客列表
+        function generateRecentBlogs() {
+            const recentBlogsList = document.getElementById('recent-blogs');
+            recentBlogs.forEach(blog => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = blog.url;
+                link.textContent = blog.title;
+                
+                // 标记当前页面的链接为活动状态
+                if (blog.url === currentPage) {
+                    link.classList.add('active');
+                    // 更新页面标题
+                    document.title = blog.title + " | AI-Researcher";
+                }
+                
+                listItem.appendChild(link);
+                recentBlogsList.appendChild(listItem);
+            });
+        }
+        
+        // 获取并解析Markdown文件
+        async function loadMarkdown() {
+            try {
+                // 从URL获取Markdown文件名（去掉.html后缀，加上.md后缀）
+                const mdFileName = currentPage.replace('.html', '.md');
+                const response = await fetch(mdFileName);
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${mdFileName}: ${response.status}`);
+                }
+                
+                const markdown = await response.text();
+                
+                // 解析元数据（YAML前置内容）
+                const metaMatch = markdown.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+                if (metaMatch) {
+                    const metaText = metaMatch[1];
+                    const contentText = metaMatch[2];
+                    
+                    // 提取元数据
+                    const titleMatch = metaText.match(/title:\s*(.*)/);
+                    const dateMatch = metaText.match(/date:\s*(.*)/);
+                    const authorMatch = metaText.match(/author:\s*(.*)/);
+                    
+                    if (titleMatch) {
+                        document.getElementById('blog-title').textContent = titleMatch[1];
+                        document.title = titleMatch[1] + " | AI-Researcher";
+                    }
+                    if (dateMatch) document.getElementById('blog-date').textContent = dateMatch[1];
+                    if (authorMatch) document.getElementById('blog-author').textContent = 'by ' + authorMatch[1];
+                    
+                    // 配置 marked 选项，启用自动链接和表格支持
+                    marked.setOptions({
+                        breaks: true,
+                        headerIds: true,
+                        gfm: true
+                    });
+                    
+                    // 渲染Markdown内容
+                    document.getElementById('content').innerHTML = marked.parse(contentText);
+                    
+                    // 代码高亮
+                    Prism.highlightAll();
+                    
+                    // 生成目录
+                    generateTOC();
+                } else {
+                    throw new Error('Invalid markdown format');
+                }
+            } catch (error) {
+                console.error('Error loading markdown:', error);
+                document.getElementById('content').innerHTML = '<p>Error loading content: ' + error.message + '</p>';
+            }
+        }
+        
+        // 生成目录
+        function generateTOC() {
+            const headings = document.querySelectorAll('.blog-body h2, .blog-body h3');
+            const toc = document.getElementById('toc');
+            
+            if (headings.length === 0) return;
+            
+            headings.forEach((heading, index) => {
+                // 为每个标题添加ID（如果没有）
+                if (!heading.id) {
+                    heading.id = 'heading-' + index;
+                }
+                
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#' + heading.id;
+                link.textContent = heading.textContent;
+                
+                // 根据标题级别添加缩进
+                if (heading.tagName === 'H3') {
+                    link.style.paddingLeft = '10px';
+                    link.style.fontSize = '0.9em';
+                }
+                
+                listItem.appendChild(link);
+                toc.appendChild(listItem);
+                
+                // 添加点击事件
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: heading.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 更新活动链接
+                    document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // 默认激活第一个链接
+            toc.querySelector('a').classList.add('active');
+            
+            // 滚动时更新活动链接
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                headings.forEach(heading => {
+                    if (heading.offsetTop - 100 <= scrollPosition) {
+                        const id = heading.id;
+                        document.querySelectorAll('#toc a').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+        
+        // 当页面加载完成后执行初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            generateRecentBlogs();
+            loadMarkdown();
+        });
+    </script>
+</body>
+</html> 
